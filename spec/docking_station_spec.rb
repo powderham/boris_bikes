@@ -9,7 +9,7 @@ describe DockingStation do
   end
 
   it 'docks a bike' do
-    bike = subject.dock_bike
+    bike = subject.release_bike
     expect(bike).to be_docked
   end
 end
