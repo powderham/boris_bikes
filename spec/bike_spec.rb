@@ -6,9 +6,10 @@ describe Bike do
    @bike = Bike.new
   end
 
-  it { is_expected.to respond_to :working? }
-
   it 'test bike can be reported broken' do
-    expect(@bike.broken?).to be_falsy
+    @bike
+    expect(@bike.broken).to be_falsy
+    @bike.broken?
+    expect(@bike.broken?).to be_truthy
   end
 end

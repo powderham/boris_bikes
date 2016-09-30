@@ -15,7 +15,8 @@ class DockingStation
     @bikes.pop()
   end
 
-  def dock_bike(bike)
+  def dock_bike(bike, broken = false)
+    bike.broken? if broken == true
     raise 'No capacity' if full?
     @bikes << bike
   end

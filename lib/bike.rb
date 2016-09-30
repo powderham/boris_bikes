@@ -1,14 +1,19 @@
 class Bike
 
+  #Accessor to allow reading and writing
+  attr_accessor :broken
 
-  attr_accessor :status
-
-def broken?
- @status = false
-end
-
-  def working?
-     @status = true
+  def initialize(broken = false)
+    @broken = broken
   end
+
+  #Methods to report bikes as broken or working
+  def broken?
+    @broken = true
+  end
+
+  # def working?
+  #   @broken = false
+  # end
 
 end
