@@ -1,9 +1,14 @@
 class Bike
+
+
+  attr_accessor :status
+
+def broken?
+ @status = false
+end
+
   def working?
-    true
+     @status = true
   end
 
-  # def docked?
-  #   true
-  # end
 end
