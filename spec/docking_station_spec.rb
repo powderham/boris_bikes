@@ -10,8 +10,9 @@ describe DockingStation do
 
   it 'releases working bikes' do
     @station.dock_bike(@bike)
-    bike = @station.release_bike
-    expect(bike.broken).to be_falsy
+     bikey = @station.release_bike
+
+    expect(bikey.broken).to be_falsy
   end
 
   it 'docks a bike' do
@@ -55,5 +56,11 @@ describe DockingStation do
     bikey = @station.release_bike
     @station.dock_bike(@bike, true)
     expect(bikey.broken).to be true
+  end
+
+  it "User can't release a broken bike" do
+    @station.dock_bike(@bike, true)
+    expect{@station.release_bike}.to raise_error('No working bikes!')
+    print
   end
 end
