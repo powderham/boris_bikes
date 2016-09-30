@@ -13,7 +13,15 @@ class DockingStation
     #Calls private method empty to return T/F depending on the private method
     raise 'No bike' if empty?
     raise "No working bikes!" if all_broken_bikes?
-    @bikes.pop()
+
+    last = @bikes.length
+    if @bikes[last-1].broken != false
+      @bikes.pop
+    else
+      @bikes.rotate!
+      release_bike
+    end
+
   end
 
   def dock_bike(bike, broken = false)
