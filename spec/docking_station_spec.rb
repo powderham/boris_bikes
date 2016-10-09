@@ -14,7 +14,7 @@ describe DockingStation do
     expect(bikey.broken).to be_falsy
   end
 
-  it 'docks a bike' do
+  it 'docks a bike' do 
     station.dock_bike(@bike)
     bike = station.bike
     expect(station).to respond_to :dock_bike

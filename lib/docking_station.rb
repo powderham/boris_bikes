@@ -25,7 +25,7 @@ class DockingStation
     raise 'No capacity' if full?
     bike.report_broken if broken == true
       @bikes << bike
-  end
+  end 
 
   def view_bikes
     @bikes
