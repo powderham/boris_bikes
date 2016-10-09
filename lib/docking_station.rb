@@ -13,25 +13,21 @@ class DockingStation
     #Calls private method empty to return T/F depending on the private method
     raise 'No bike' if empty?
     raise "No working bikes!" if all_broken_bikes?
-
-    last = @bikes.length
-    if @bikes[last-1].broken != false
+    if @bikes.last.broken? == false
       @bikes.pop
     else
       @bikes.rotate!
       release_bike
     end
-
   end
 
   def dock_bike(bike, broken = false)
-    bike.broken? if broken == true
     raise 'No capacity' if full?
-
+    bike.report_broken if broken == true
       @bikes << bike
   end
 
-  def view_bike
+  def view_bikes
     @bikes
   end
 
@@ -47,14 +43,7 @@ class DockingStation
     end
 
     def all_broken_bikes?
-      bb_count = 0
-
-      @bikes.each do |bike|
-        bb_count += 1  if bike.broken == true
-      end
-      bb_count == @bikes.length
-      #print bb_count
-      #print "This is #{@bikes.length}"
+      @bikes.all? {|bike| bike.broken? == true}
     end
 
 end

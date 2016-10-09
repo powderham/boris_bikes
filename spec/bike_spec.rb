@@ -2,14 +2,11 @@ require 'bike'
 
 describe Bike do
 
-  before(:each) do
-   @bike = Bike.new
-  end
+  subject(:bike) {described_class.new}
 
   it 'test bike can be reported broken' do
-    @bike
-    expect(@bike.broken).to be_falsy
-    @bike.broken?
-    expect(@bike.broken?).to be_truthy
+    expect(bike.broken).to be_falsy
+    bike.report_broken
+    expect(bike.broken?).to be_truthy
   end
 end
